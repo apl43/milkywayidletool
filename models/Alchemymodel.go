@@ -2,14 +2,14 @@ package models
 
 // 炼金转化配置
 type AlchemyTransformationConfig struct {
-	Cost        AlchemyCost // 消耗
-	SuccessRate float64     // 成功率
-	Output      float64     // 产出
-	ActionTime  float64     // 行动时间(单位:秒)
+	Cost        AlchemyCostItem   // 消耗
+	SuccessRate float64           // 成功率
+	Output      AlchemyOutputItem // 产出
+	ActionTime  float64           // 行动时间(单位:秒)
 }
 
 // 炼金消耗
-type AlchemyCost struct {
+type AlchemyCostItem struct {
 	ItemID     int // 物品ID
 	Quantity   int // 物品数量
 	GoldCost   int // 消耗金币数量
