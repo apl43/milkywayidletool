@@ -1,3 +1,3 @@
-module github.com/apl43/milkywayidletool
+module milkywayidletool
 
 go 1.25.3

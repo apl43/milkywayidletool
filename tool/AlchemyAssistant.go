@@ -2,7 +2,7 @@ package tool
 
 import (
 	"fmt"
-	"github.com/apl43/milkywayidletool/model/alchemymodel"
+	"milkywayidletool/models"
 )
 
 // // 获取炼金经验
@@ -10,8 +10,18 @@ import (
 
 // }
 
-// 计算转化产出
-func CalculateTheTransformationOutput(i *alchemymodel.AlchemyTransformationConfig) {
-	i.Cost = alchemymodel.AlchemyCost{ItemID: 1, Quantity: 10, GoldCost: 100, CatalystID: 0}
-	fmt.Println("111", i.Cost)
+// // 计算转化产出
+// func CalculateTheTransformationOutput(i *models.AlchemyTransformationConfig) {
+// 	i.Cost = models.AlchemyCost{ItemID: 1, Quantity: 10, GoldCost: 100, CatalystID: 0}
+// 	fmt.Println("111", i.Cost)
+// }
+
+
+func Te() {
+	fmt.Println("测试")
+	var a models.AlchemyTransformationConfig
+	a = models.AlchemyTransformationConfig{
+		Cost: models.AlchemyCost{ItemID: 1, Quantity: 10, GoldCost: 100, CatalystID: 0},
+	}
+	fmt.Println(a)
 }

@@ -1,11 +1,13 @@
 package main
 
 import (
-	"github.com/apl43/milkywayidletool/tool"
-	"github.com/apl43/milkywayidletool/model/alchemymodel"
+	"fmt"
+	"milkywayidletool/tool"
 )
 
 func main() {
-	cfg := alchemymodel.AlchemyTransformationConfig{}
-	tool.CalculateTheTransformationOutput(&cfg)
+	// cfg := models.AlchemyTransformationConfig{}
+	// tool.CalculateTheTransformationOutput(&cfg)
+	fmt.Println("111")
+	tool.Te()
 }

@@ -1,4 +1,4 @@
-package model
+package models
 
 // 炼金转化配置
 type AlchemyTransformationConfig struct {

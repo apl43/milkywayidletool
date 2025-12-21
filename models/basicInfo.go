@@ -1,4 +1,4 @@
-package model
+package models
 
 // 各技能等级
 type Experience struct {
