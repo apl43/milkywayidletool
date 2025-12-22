@@ -1,34 +1,44 @@
 package models
 
-// 炼金转化配置
-type AlchemyTransformationConfig struct {
-	Cost        AlchemyCostItem   // 消耗
-	SuccessRate float64           // 成功率
-	Output      AlchemyOutputItem // 产出
-	ActionTime  float64           // 行动时间(单位:秒)
+// 转化models
+// 转化操作结构
+type Conversionoperation struct {
+	RecipeName     string   // 转化项目名称
+	InputName      string   // 原料名称
+	InputQuantity  int      // 原料数量
+	Catalyst       string   // 选择催化剂
+	RetainProducts []string // 保留产物
 }
 
-// 炼金消耗
-type AlchemyCostItem struct {
-	ItemID     int // 物品ID
-	Quantity   int // 物品数量
-	GoldCost   int // 消耗金币数量
-	CatalystID int // 催化剂ID  0: 无｜1: 黄催｜2: 绿催｜3: 紫催｜4: 红催
+// 转化配方结构
+type ConversionRecipe struct {
+	Name       string // 消耗物品名称
+	Quantity   int    // 消耗物品数量
+	GoldCost   int    // 消耗金币
+	ActionTime int    // 行动时间(单位: 秒)
+
+	SuccessRate float64 // 成功率
+
+	MainProducts []ProductProbability // 主要产物
+	ExtraOutput  ExtraOutput          // 额外产出
 }
 
-// 炼金产出
-type AlchemyOutput struct {
-	OutputList       map[int]AlchemyOutputItem // 产出列表
-	EssenceOutput    map[int]AlchemyOutputItem // 精华
-	RareOutput       map[int]AlchemyOutputItem // 稀有
-	ExperienceOutput float64                   // 经验
+// 主要产物
+type ProductProbability struct {
+	Name     string  // 产物名称
+	Quantity int     // 产物数量
+	Chance   float64 // 获得概率
 }
 
-// 炼金产出物品
-type AlchemyOutputItem struct {
-	Id          int     // 物品ID
-	Probability float64 // 产出概率
-	Quantity    int     // 产出数量
+// 额外产出
+type ExtraOutput struct {
+	EssenceName   string  // 精华名称
+	EssenceChance float64 // 精华掉落概率
+
+	RareDropName   string  // 稀有掉落名称
+	RareDropChance float64 // 稀有掉落概率
+
+	ExperienceGain float64 // 经验
 }
 
 // 炼金加成
