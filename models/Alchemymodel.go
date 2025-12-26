@@ -2,7 +2,7 @@ package models
 
 // 转化models
 // 转化操作结构
-type Conversionoperation struct {
+type ConversionOperation struct {
 	RecipeName     string   // 转化项目名称
 	InputName      string   // 原料名称
 	InputQuantity  int      // 原料数量
@@ -12,15 +12,17 @@ type Conversionoperation struct {
 
 // 转化配方结构
 type ConversionRecipe struct {
-	Name       string // 消耗物品名称
-	Quantity   int    // 消耗物品数量
-	GoldCost   int    // 消耗金币
-	ActionTime int    // 行动时间(单位: 秒)
+	Name       string  // 消耗物品名称
+	Quantity   int64     // 消耗物品数量
+	GoldCost   int64     // 消耗金币
+	ActionTime float64 // 行动时间(单位: 秒)
 
 	SuccessRate float64 // 成功率
 
 	MainProducts []ProductProbability // 主要产物
 	ExtraOutput  ExtraOutput          // 额外产出
+
+	RecommendedLevel int // 推荐等级
 }
 
 // 主要产物
@@ -41,11 +43,47 @@ type ExtraOutput struct {
 	ExperienceGain float64 // 经验
 }
 
-// 炼金加成
+// // 炼金加成
+// type AlchemyBonus struct {
+// 	EfficiencyBonus    Bonus
+// 	SuccessRateBonus   Bonus
+// 	ActionSpeedBonus   Bonus
+// 	ExperienceBonus    Bonus
+// 	RareDiscoveryBonus Bonus
+// }
+
+// 加成类型定义
+type BonusType string
+
+const (
+	EfficiencyBonus    BonusType = "效率"
+	SuccessRateBonus   BonusType = "成功率"
+	ActionSpeedBonus   BonusType = "行动速度"
+	ExperienceBonus    BonusType = "经验"
+	RareDiscoveryBonus BonusType = "稀有发现"
+)
+
+// 加成值结构
+type BonusValue struct {
+	Type      BonusType // 加成类型
+	BaseValue float64   // 基础加成数值
+	Level     int       // 加成等级
+}
+
+// 加成集合
+type BonusCollection struct {
+	Efficiency    []BonusValue
+	SuccessRate   []BonusValue
+	ActionSpeed   []BonusValue
+	Experience    []BonusValue
+	RareDiscovery []BonusValue
+}
+
+// 炼金加成 临时
 type AlchemyBonus struct {
-	EfficiencyBonus    float64 // 效率加成
-	SuccessRateBonus   float64 // 炼金成功率加成
-	ActionSpeedBonus   float64 // 行动速度加成
-	ExperienceBonus    float64 // 经验加成
-	RareDiscoveryBonus float64 // 稀有发现加成
+	EfficiencyBonus    float64 // 效率
+	SuccessRateBonus   float64 // 成功率
+	ActionSpeedBonus   float64 // 行动速度
+	ExperienceBonus    float64 // 经验
+	RareDiscoveryBonus float64 // 稀有发现
 }
