@@ -23,6 +23,7 @@ var ConversionRecipeMap = map[string]models.ConversionRecipe{
 			RareDropChance: 0, // 待修改
 			ExperienceGain: 0, // 待修改
 		},
+		RecommendedLevel: 40,
 	},
 	"分解催化剂": {
 		Name:        "分解催化剂",
@@ -43,5 +44,6 @@ var ConversionRecipeMap = map[string]models.ConversionRecipe{
 			RareDropChance: 0, // 待修改
 			ExperienceGain: 0, // 待修改
 		},
+		RecommendedLevel: 50,
 	},
 }
